@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Louis TKW">
+    <meta name="description" content="The DSE Vocab Builder aims to provide a fun way for students studying for the HKDSE to learn and master the English vocabulary that they need for the exam.">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" integrity="sha512-RliK2gk03WxUELn57ddjWLhEfhUiOZ85VvWLImFy8A7FOPMkF4Z9YGQ3VKX5jpwkEerAL6I0nC+JNeCPrxWBTw==" crossorigin="anonymous" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autotab/1.9.2/js/jquery.autotab.min.js" integrity="sha512-wKEDUO5yhx+KCNN/Kz6ksfeK00p/76dfENygq3LktbGl5zKSMpSm3zaBO0KFTKxqc689yf7gNUEViXz3c4jBFA==" crossorigin="anonymous"></script>
+   <!-- JQuery Autotab: only work on web browser -->
+   <script>
+       $(document).ready(function(){
+            $('button').click(function(){
+                $.autotab({tabOnSelect: true});
+                $(".letter").autotab('filter', 'text');
+          });
+       });
+   </script>
+   <!-- Font Awesome -->
+   <script src="https://kit.fontawesome.com/c8caa55141.js" crossorigin="anonymous"></script>
+    <title>DSE Vocab Builder</title>
+</head>
+<body>
+    <header>
+        <h1>DSE Vocab Builder</h1>
+    </header>
+    <section>
+        <div class="GameArea">
+            <div class="life"></div>
+            <h2 class='score'></h2>
+            <div class="start">Are You Ready?? </div>
+            <div id="answer">
+                <!-- <input type="text"> -->
+            </div>
+            <button class="btn">開始</button>
+            <button class="btn" id="modalTrigger">先學習單詞</button>
+            <h2 class="bestScore"></h2>
+        </div>
+    </section>
+    <!-- The Modal box -->
+    <div id="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <table class="model-content">
+                <thead>
+                    <tr>
+                        <th colspan="2">DSE Vocab List</th>
+                    </tr>
+                </thead>
+                <tbody id="wordList">
+                    <!-- <tr>
+                        <td>The table body</td>
+                        <td>with two columns</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
