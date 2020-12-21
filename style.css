@@ -263,6 +263,18 @@ i {
         border-radius: 500px;
         margin-top: 1.5rem;
     }
+    .GameArea {
+        width: 90%;
+        /* height: 90vh; */
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 20px 20px -9px black;
+        border-radius: 20px;
+        border: 1px solid #f8f9fa;
+    }
     input {
         border: 0;
         outline: 0;
@@ -276,9 +288,9 @@ i {
         margin: 0 5px;
         text-align: center;
         line-height: 1rem;
-        font-size: .8rem;
+        font-size: 1.2rem;
         color: #e9ecef;
-        width: 1.3rem;
+        width: 1.5rem;
         transition: all .2s ease-in-out;
         -moz-box-sizing:    border-box;
         -webkit-box-sizing: border-box;
