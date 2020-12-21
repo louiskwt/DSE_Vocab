@@ -180,7 +180,7 @@ const chainingValue = () => {
         console.log(answerSection[i]);
         addedValue += answerSection[i].value;
     }
-    return addedValue;
+    return addedValue.toLowerCase();
 }
 // clearing the input
 const clearingInput = () => {
@@ -211,7 +211,9 @@ const gameOver = () => {
 // Best score function
 const updatingBestScore = () => {
     // check and update the best score
-    if(point > bestScore) {
+    if (bestScore == null) {
+        bestScore = scoreStorage.setItem('bestScore,', 0);
+    }else if (point > bestScore) {
         // updating the score
         scoreStorage.setItem('bestScore', point);
     }
