@@ -276,10 +276,9 @@ i {
         margin: 0 5px;
         text-align: center;
         line-height: 1rem;
-        border-width: 1.2rem;
         font-size: .8rem;
         color: #e9ecef;
-        width: 1.5rem;
+        width: 1.3rem;
         transition: all .2s ease-in-out;
         -moz-box-sizing:    border-box;
         -webkit-box-sizing: border-box;
