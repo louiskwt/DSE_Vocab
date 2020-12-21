@@ -216,9 +216,10 @@ const updatingBestScore = () => {
     }else if (point > bestScore) {
         // updating the score
         scoreStorage.setItem('bestScore', point);
+        bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore} 分`;
+    } else if (bestScore > 0) {
+        bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore} 分`;
     }
-    console.log(bestScore);
-    bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore} 分`
 }
 
 
