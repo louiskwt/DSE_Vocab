@@ -104,7 +104,7 @@ input {
     line-height: 0.9rem;
     font-size: 2rem;
     color: #e9ecef;
-    width: 100%;
+    width: 1.5rem;
     transition: all .2s ease-in-out;
 }
 
@@ -275,10 +275,11 @@ i {
         -webkit-border-radius: 0; 
         margin: 0 5px;
         text-align: center;
-        line-height: 0.9rem;
-        font-size: 1rem;
+        line-height: 1rem;
+        border-width: 1.2rem;
+        font-size: .8rem;
         color: #e9ecef;
-        width: 100%;
+        width: 1.5rem;
         transition: all .2s ease-in-out;
         -moz-box-sizing:    border-box;
         -webkit-box-sizing: border-box;
