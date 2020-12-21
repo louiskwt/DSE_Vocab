@@ -219,7 +219,7 @@ const updatingBestScore = () => {
         bestScore.setItem('bestScore', point);
     } 
     // displaying the score
-    bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore.getItem('bestScore')} 分`;
+    bestScoreDisplay.innerHTML = `最住成績： ${bestScore.getItem('bestScore')} 分`;
 }
 
 
