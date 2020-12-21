@@ -50,7 +50,7 @@ section {
 /* Overall Game Board Style */
 
 .GameArea {
-    width: 90%;
+    width: 80%;
     /* height: 90vh; */
     padding: 20px 0;
     display: flex;
@@ -233,4 +233,52 @@ tr {
 /* Heart style */
 i {
     margin-right: 0.3rem;
+}
+
+/* Media Query */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-family: Helvetica, sans-serif;
+        text-align: center;
+        color: white;
+        font-size: 1.2rem;
+        letter-spacing: 1rem;
+        text-transform: uppercase;
+        word-spacing: 0.2rem;
+    }
+    
+    h2 {
+        font-size: 1rem;
+        color: white;
+    }
+    
+    button {
+        font-size: 0.8rem;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #e9ecef;
+        text-decoration: none;
+        /* margin-top: 10px; */
+        color: #000;
+        border-radius: 500px;
+        margin-top: 1.5rem;
+    }
+    input {
+        border: 0;
+        outline: 0;
+        -webkit-outline: 0;
+        background: transparent;
+        border-bottom: 1px solid #e9ecef;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-border-radius: 0; 
+        margin: 0 5px;
+        text-align: center;
+        line-height: 0.9rem;
+        font-size: 1rem;
+        color: #e9ecef;
+        width: 100%;
+        transition: all .2s ease-in-out;
+    }
 }
