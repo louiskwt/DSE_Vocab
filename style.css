@@ -2,6 +2,9 @@
 * {
     margin: 0;
     padding: 0;
+    outline: 0;   
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #343a40;
 }
@@ -12,7 +15,7 @@ header {
 }
 
 h1 {
-    font-family: cursive;
+    font-family: Helvetica, sans-serif;
     text-align: center;
     color: white;
     font-size: 1.5rem;
@@ -32,7 +35,6 @@ section {
     text-align: center;
     justify-content: center;
     align-items: center;
-
 }
 
 
@@ -57,13 +59,21 @@ section {
 
 /* Intial message */
 .start {
-    font-size: 30px;
+    font-size: 1.2rem;
     color: #e9ecef;
     transform: translate(0, -30px);
 }
 
+.incorrect {
+    color: #b5454e;
+}
+
+.correct {
+    color: #6ab547;
+}
+
 .life {
-    font-size: 30px;
+    font-size: 1.3rem;
     color: #e9ecef;
     transform: translate(0, -30px);
 }
@@ -73,18 +83,18 @@ input {
     margin: 0 5px;
     text-align: center;
     line-height: 0.9rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     outline: 0;
     border-width: 0 0 2px;
     border-color: #e9ecef;
     color: #e9ecef;
-    width: 30%;
+    width: 100%;
     transition: all .2s ease-in-out;
 }
 
 /* Game Button */
 button {
-    font-size: 20px;
+    font-size: 1.2rem;
     cursor: pointer;
     outline: none;
     border: 1px solid #e9ecef;
@@ -113,7 +123,7 @@ button.btn:focus {
 }
 /* Score display */
 .score {
-    font-size: 30px;
+    font-size: 1.2rem;
     padding: 10px 0;
     transform: translate(0, -30px);
     color: #f8f9fa;

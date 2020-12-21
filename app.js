@@ -135,19 +135,18 @@ const initialSetUp = () => {
 
 // Functions for hecking the answers
 const correctAns = () => {
-    let correctMessage = `<h2> 正確！好叻呀. </h2><br>
-                         ${newWord[0]} - ${newWord[1]}`;
+    let correctMessage = `<h2 class="correct"> 正確！好叻呀. </h2>
+                         <h2 class="correct">${newWord[0]} - ${newWord[1]}</h2>`;
     game = false;
     inital.innerHTML = correctMessage;
-    inital.style.color = '#6ab547';
     point += 5;
     score.innerHTML = `${point} 分`;
     btn.innerHTML = '下一題！';
 }
 
 const incorrectAns = () => {
-    let incorrectMessage = `<h2>繼績努力呀～ </h2><br>
-                            正確答案:  ${newWord[0]} - ${newWord[1]}`;
+    let incorrectMessage = `<h2 class="incorrect">繼績努力呀～ </h2>
+                            <h2 class="incorrect">正確答案:  ${newWord[0]} - ${newWord[1]}<h2>`;
     inital.innerHTML = incorrectMessage;
     inital.style.color =  '#b5454e';
     btn.innerHTML = '試多次';
