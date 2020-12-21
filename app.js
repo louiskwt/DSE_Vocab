@@ -211,15 +211,16 @@ const gameOver = () => {
 // Best score function
 const updatingBestScore = () => {
     // check and update the best score
-    if (bestScore == null) {
-        bestScore = scoreStorage.setItem('bestScore,', 0);
-    }else if (point > bestScore) {
+    let bestScoreDisplay = document.querySelector('.bestScore');
+    let bestScore = window.localStorage;
+    if (bestScore.getItem('bestScore') == null) {
+        bestScore.setItem('bestScore', '0');
+    }else if (point > bestScore.getItem('bestScore')) {
         // updating the score
-        scoreStorage.setItem('bestScore', point);
-        bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore} 分`;
-    } else if (bestScore > 0) {
-        bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore} 分`;
-    }
+        bestScore.setItem('bestScore', point);
+    } 
+    // displaying the score
+    bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore.getItem('bestScore')} 分`;
 }
 
 
@@ -231,7 +232,6 @@ btn.addEventListener('click', () => {
         // Setting up the game on click
         initialSetUp();
         updatingBestScore();
-        bestScoreDisplay.innerHTML = `上次最住成績： ${bestScore} 分`;
     } else {
         // getting the input from users
         let inputWord = chainingValue();
