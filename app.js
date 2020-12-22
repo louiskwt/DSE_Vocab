@@ -156,6 +156,13 @@ const incorrectAns = () => {
     
 }
 
+// auto tab functin
+function autoTab(original, destination) {
+if (original.getAttribute&&original.value.length==original.getAttribute("maxlength")) {
+    destination.focus()
+    }
+}
+
 // creating the input
 const creatingInput = () => {
     ansInput.innerHTML = "";
@@ -166,6 +173,8 @@ const creatingInput = () => {
         ans.setAttribute("type", "input");
         ans.setAttribute("size", "1");
         ans.setAttribute("maxLength", "1");
+        ans.setAttribute("name", `${i}`);
+        ans.setAttribute("onKeyup", `autoTab(this, ansInput.childNodes[${i+1}])`);
         ansInput.appendChild(ans);
     }
 }
