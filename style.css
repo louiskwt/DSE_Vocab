@@ -35,6 +35,7 @@ h1 {
 h2 {
     font-size: 1.5rem;
     color: white;
+    margin-bottom: 1.2rem;
 }
 
 section {
@@ -74,7 +75,7 @@ section {
 }
 
 .incorrect {
-    color: #b5454e;
+    color: #f05454;
 }
 
 .correct {
