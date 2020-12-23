@@ -273,7 +273,7 @@ i {
     }
     .GameArea {
         width: 90%;
-        /* height: 90vh; */
+        height: 100%;
         padding: 20px 0;
         display: flex;
         justify-content: center;
@@ -303,14 +303,5 @@ i {
         -moz-box-sizing:    border-box;
         -webkit-box-sizing: border-box;
          box-sizing:        border-box;
-    }
-    i {
-        margin-right: 0.2rem;
-    }
-    .life {
-        margin-bottom: 0.8rem;
-    }
-    .start {
-        margin-top: 0.5rem;
     }
 }
