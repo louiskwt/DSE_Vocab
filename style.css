@@ -33,11 +33,14 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: white;
     margin-bottom: 1.2rem;
 }
-
+h3 {
+    font-size: 1.2rem;
+    color: white;
+}
 section {
     margin-top: 2rem;
     display: flex;
@@ -249,10 +252,14 @@ i {
     }
     
     h2 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: white;
     }
-    
+
+    h3 {
+    font-size: 1rem;
+    color: white;
+    }
     button {
         font-size: 0.8rem;
         cursor: pointer;
