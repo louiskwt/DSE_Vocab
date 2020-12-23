@@ -21,6 +21,8 @@ let bestScoreDisplay = document.querySelector('.bestScore');
 let scoreStorage = window.localStorage;
 let bestScore = scoreStorage.getItem('bestScore');
 
+// Reverse Autotab Variable
+let userInput = document.querySelector('.letter'); 
 
 // initial setting
 score.innerHTML = "";
@@ -163,6 +165,23 @@ if (original.getAttribute&&original.value.length==original.getAttribute("maxleng
     }
 }
 
+// reverse tab function
+function reverseTab(e, original, destination) {
+    // Check which key is pressed
+    let key;
+    if (window.e) { 
+        key = e.keyCode; 
+    } else if (e.which) { 
+        key = e.which; 
+    } 
+    // console.log(key);
+    // console.log(original.value.length);
+    if(key == 8 && original.value.length==0){
+        destination.focus();
+    }
+}
+
+
 // creating the input
 const creatingInput = () => {
     ansInput.innerHTML = "";
@@ -175,6 +194,9 @@ const creatingInput = () => {
         ans.setAttribute("maxLength", "1");
         ans.setAttribute("name", `${i}`);
         ans.setAttribute("onKeyup", `autoTab(this, ansInput.childNodes[${i+1}])`);
+        if(i > 0) {
+            ans.setAttribute("onKeydown", `reverseTab(event, this, ansInput.childNodes[${i-1}])`);
+        }
         ansInput.appendChild(ans);
     }
 }
