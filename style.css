@@ -317,4 +317,10 @@ i {
         -webkit-box-sizing: border-box;
          box-sizing:        border-box;
     }
+    .life {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        color: #e9ecef;
+        transform: translate(0, -30px);
+    }
 }
