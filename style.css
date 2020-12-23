@@ -35,12 +35,17 @@ h1 {
 h2 {
     font-size: 1.8rem;
     color: white;
-    margin-bottom: 1.2rem;
+    /* margin-bottom: 1.2rem; */
 }
 h3 {
     font-size: 1.2rem;
     color: white;
 }
+
+.openingDisplay {
+    margin-bottom: 1.2rem; 
+}
+
 section {
     margin-top: 2rem;
     display: flex;
