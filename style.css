@@ -262,8 +262,8 @@ i {
     }
 
     h3 {
-    font-size: 1rem;
-    color: white;
+        font-size: 1rem;
+        color: white;
     }
     button {
         font-size: 0.8rem;
@@ -275,6 +275,14 @@ i {
         color: #000;
         border-radius: 500px;
         margin-top: 1.5rem;
+    }
+    section {
+        margin-top: 1rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        max-height: 85vh;
     }
     .GameArea {
         width: 90%;
