@@ -28,35 +28,251 @@ let userInput = document.querySelector('.letter');
 score.innerHTML = "";
 
 
-// Hard coded Word List
-const words = {
-    englishWord: ['stop', 'doctor', 'laptop', 'science', 'engineer', 
-                  'wonder', 'desire', 'society', 'wonder', 'social', 
-                  'volunteer', 'vet', 'wonderful', 'socialise', 'dentist',
-                  'mention', 'finding', 'sad', 'special', 'tired', 
-                  'volunteer', 'pet', 'crime', 'fun', 'sit', 
-                  'sing', 'compete', 'piano', 'smartphone', 'simple',
-                  'trap', 'flight', 'hotel', 'beach', 'farm',
-                  'text', 'slow', 'oil', 'salt', 'hopeful',
-                  'real', 'state', 'lead', 'health', 'sell',
-                  'helpful', 'wage', 'pay', 'late', 'mask'
-                ],
-    chineseMeaning: ['停止 (v.)', '醫生 (n.)', '手提電腦 (n.)', '科學 (n.)', '工程師 (n.)',
-                     '驚訝 (n.)', '慾望 (n.)', '社會 (n.)', '想知道 (v.)', '社交的 (adj.)', 
-                     '義工 (v.)', '獸醫 (n.)', '神奇的 (Adj.)', '交際 (v.)', '牙醫 (n.)', 
-                     '提及 (v.)', '發現 (n.)', '傷心 (adj.)', '特別的 (adj.)', '疲累的 (Adj.)', 
-                     '做義工 (v.)', '寵物 (n.)', '罪案 (n.)', '歡樂的 (ad.)', '坐 (v.)',
-                     '唱歌 (v.)', '競爭 (v.)', '鋼琴 (n.)', '智能手機 (n.)', '簡單的 （adj.)',
-                     '陷阱 (n.)', '航班 (n.)', '酒店 (n.)', '海灘 (n.)', '  農田(n.)',
-                     '文字 (n.)', '緩慢的 (adj.)', '油 (n.)', '鹽 (n.)', '有希望的 （adj.)',
-                     '真實的 (adj.)', '指出 (v.)', '領導 (v.)', '健康', '賣 (v.)',
-                     '有幫肋的 (adj.)', '工資 (n.)', '付款 (n.)', '遲的 (adj.)', '口罩 (n.)'   
-                    ]
-}
+// Static vocab list
+const vocabList = [
+    {
+        "word": "stop",
+        "meaning": "停止 (v.)"
+    },
+    {
+        "word": "doctor",
+        "meaning": "醫生 (n.)"
+    },
+    {
+        "word": "laptop",
+        "meaning": "手提電腦 (n.)"
+    },
+    {
+        "word": "science",
+        "meaning": "科學 (n.)"
+    },
+    {
+        "word": "engineer",
+        "meaning": "工程師 (n.)"
+    },
+    {
+        "word": "wonder",
+        "meaning": "驚訝 (n.)"
+    },
+    {
+        "word": "desire",
+        "meaning": "慾望 (n.)"
+    },
+    {
+        "word": "society",
+        "meaning": "社會 (n.)"
+    },
+    {
+        "word": "wonder",
+        "meaning": "想知道 (v.)"
+    },
+    {
+        "word": "social",
+        "meaning": "社交的 (adj.)"
+    },
+    {
+        "word": "volunteer",
+        "meaning": "義工 (v.)"
+    },
+    {
+        "word": "vet",
+        "meaning": "獸醫 (n.)"
+    },
+    {
+        "word": "desire",
+        "meaning": "慾望 (n.)"
+    },
+    {
+        "word": "wonderful",
+        "meaning": "神奇的 (adj.)"
+    },
+    {
+        "word": "socialise",
+        "meaning": "交際 (v.)"
+    },
+    {
+        "word": "dentist",
+        "meaning": "牙醫 (n.)"
+    },
+    {
+        "word": "mention",
+        "meaning": "提及 (v.)"
+    },
+    {
+        "word": "finding",
+        "meaning": "發現 (n.)"
+    },
+    {
+        "word": "sad",
+        "meaning": "傷心 (adj.)"
+    },
+    {
+        "word": "special",
+        "meaning": "特別的 (adj.)"
+    },
+    {
+        "word": "tired",
+        "meaning": "疲累的 (adj.)"
+    },
+    {
+        "word": "volunteer",
+        "meaning": "做義工 (v.)"
+    },
+    {
+        "word": "pet",
+        "meaning": "寵物 (n.)"
+    },
+    {
+        "word": "crime",
+        "meaning": "罪案 (n.)"
+    },
+    {
+        "word": "fun",
+        "meaning": "歡樂的 (ad.)"
+    },
+    {
+        "word": "sit",
+        "meaning": "坐 (v.)"
+    },
+    {
+        "word": "compete",
+        "meaning": "競爭 (v.)"
+    },
+    {
+        "word": "piano",
+        "meaning": "鋼琴 (n.)"
+    },
+    {
+        "word": "smartphone",
+        "meaning": "智能手機 (n.)"
+    },
+    {
+        "word": "simple",
+        "meaning": "簡單的 （adj.)"
+    },
+    {
+        "word": "trap",
+        "meaning": "陷阱 (n.)"
+    },
+    {
+        "word": "flight",
+        "meaning": "航班 (n.)"
+    },
+    {
+        "word": "hotel",
+        "meaning": "酒店 (n.)"
+    },
+    {
+        "word": "beach",
+        "meaning": "海灘 (n.)"
+    },
+    {
+        "word": "farm",
+        "meaning": "農田(n.)"
+    },
+    {
+        "word": "text",
+        "meaning": "文字 (n.)"
+    },
+    {
+        "word": "slow",
+        "meaning": "緩慢的 (adj.)"
+    },
+    {
+        "word": "oil",
+        "meaning": "油 (n.)"
+    },
+    {
+        "word": "salt",
+        "meaning": "鹽 (n.)"
+    },
+    {
+        "word": "hopeful",
+        "meaning": "有希望的（adj.)"
+    },
+    {
+        "word": "real",
+        "meaning": "真實的 (adj.)"
+    },
+    {
+        "word": "state",
+        "meaning": "指出 (v.)"
+    },
+    {
+        "word": "lead",
+        "meaning": "領導 (v.)"
+    },
+    {
+        "word": "health",
+        "meaning": "健康 (n.)"
+    },
+    {
+        "word": "sell",
+        "meaning": "賣 (v.)"
+    },
+    {
+        "word": "helepful",
+        "meaning": "有幫肋的 (adj.)"
+    },
+    {
+        "word": "wage",
+        "meaning": "工資 (n.)"
+    },
+    {
+        "word": "pay",
+        "meaning": "付款 (n.)"
+    },
+    {
+        "word": "late",
+        "meaning": "遲的 (adj.)"
+    },
+    {
+        "word": "mask",
+        "meaning": "口罩 (n.)"
+    },
+    {
+        "word": "symbol",
+        "meaning": "標誌 (n.)"
+    },
+    {
+        "word": "boar",
+        "meaning": "野豬 (n.)"
+    },
+    {
+        "word": "truck",
+        "meaning": "貨車 (n.)"
+    },
+    {
+        "word": "virtual",
+        "meaning": "虛疑的 (adj.)"
+    },
+    {
+        "word": "novel",
+        "meaning": "小說 (n.)"
+    },
+    {
+        "word": "steam",
+        "meaning": "蒸 (v.)"
+    },
+    {
+        "word": "handle",
+        "meaning": "處理 (v.)"
+    },
+    {
+        "word": "trust",
+        "meaning": "相信 (v.)"
+    },
+    {
+        "word": "fashion",
+        "meaning": "時裝 (n.)"
+    }
+]
 
+console.log(vocabList.length);
+console.log(vocabList[1].word);
 // Function for creating the vocab list
 const createTable = () => {
-    let len = words['englishWord'].length;
+    let len = vocabList.length;
     const list = document.getElementById('wordList')
 
     for(let i = 0; i < len; i++) {
@@ -66,11 +282,11 @@ const createTable = () => {
                 // create a <td> element and a text node
                 const cell = document.createElement('td');
                 if (j == 0) {
-                    const engText = document.createTextNode(`${words.englishWord[i]}`);
+                    const engText = document.createTextNode(`${vocabList[i].word}`);
                     cell.appendChild(engText);
                     row.appendChild(cell);
                 } else {
-                    const chinText = document.createTextNode(`${words.chineseMeaning[i]}`);
+                    const chinText = document.createTextNode(`${vocabList[i].meaning}`);
                     cell.appendChild(chinText);
                     row.appendChild(cell);
                 }
@@ -101,8 +317,8 @@ const reduceLife = () => {
 
 // Game Set up (creating and scrambling words)
 const createWords = () => {
-    let number = Math.floor(Math.random() * words.englishWord.length);
-    let word = [words.englishWord[number], words.chineseMeaning[number]];
+    let number = Math.floor(Math.random() * vocabList.length);
+    let word = [vocabList[number].word, vocabList[number].meaning];
     // console.log(random.split(""));
     return word;
 }
@@ -173,8 +389,6 @@ function reverseTab(e, original, destination) {
     } else if (e.which) { 
         key = e.which; 
     } 
-    // console.log(key);
-    // console.log(original.value.length);
     if(key == 8 && original.value.length==0){
         destination.focus();
     }
