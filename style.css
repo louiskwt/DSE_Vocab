@@ -26,7 +26,7 @@ h1 {
     font-family: Helvetica, sans-serif;
     text-align: center;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     letter-spacing: .25rem;
     text-transform: uppercase;
     word-spacing: 0.2rem;
@@ -77,6 +77,7 @@ section {
 
 .header-link {
     font-family: Helvetica, sans-serif;
+    font-size: 1rem;
     color: #fff;
     text-decoration: none;
 }
@@ -276,7 +277,98 @@ i {
 }
 
 /* Media Query */
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
+    h1 {
+        font-family: Helvetica, sans-serif;
+        text-align: center;
+        color: white;
+        font-size: 1.3rem;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+        word-spacing: 0.2rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    h3 {
+        font-size: 1rem;
+        color: white;
+    }
+    .header-link {
+        font-size: 1rem;
+    }
+    button {
+        font-size: 0.8rem;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #e9ecef;
+        text-decoration: none;
+        /* margin-top: 10px; */
+        color: #000;
+        border-radius: 500px;
+    }
+    button.btn {
+        font-weight: 600;
+        padding: 1rem 2rem;
+        background: #e9ecef;
+        text-transform: uppercase;
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: cubic-bezier(0.65, -0.25, 0.25, 1.95);
+        margin-top: 1.5rem;
+    } 
+    section {
+        margin-top: 1rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        max-height: 85vh;
+    }
+    .GameArea {
+        width: 90%;
+        height: 100%;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 20px 20px -9px black;
+        border-radius: 20px;
+        border: 1px solid #f8f9fa;
+    }
+    input {
+        border: 0;
+        outline: 0;
+        -webkit-outline: 0;
+        background: transparent;
+        border-bottom: 1px solid #e9ecef;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-border-radius: 0; 
+        margin: 0 5px;
+        text-align: center;
+        line-height: 1.2rem;
+        font-size: 1.4rem;
+        color: #e9ecef;
+        width: 1.5rem;
+        transition: all .2s ease-in-out;
+        -moz-box-sizing:    border-box;
+        -webkit-box-sizing: border-box;
+         box-sizing:        border-box;
+    }
+    .life {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        color: #e9ecef;
+        transform: translate(0, -30px);
+    }
+}
+
+@media screen and (min-width: 360px) {
     h1 {
         font-family: Helvetica, sans-serif;
         text-align: center;
@@ -287,7 +379,7 @@ i {
         word-spacing: 0.2rem;
     }
     h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: white;
     }
 
