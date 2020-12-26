@@ -18,8 +18,14 @@
     <title>DSE Vocab Builder</title>
 </head>
 <body>
-    <header>
-        <h1>DSE Vocab Builder</h1>
+    <header class="box-container">
+        <div class="container-section">
+                <h1 class="container-item">Vocab Builder</h1>
+        </div>
+        <div class="container-section">
+            <a href="#" class="container-item header-link"><i class="fas fa-list"></i>My List</a>
+            <a href="#" class="container-item header-link"><i class="fas fa-plus-circle"></i>Add</a>
+        </div>
     </header>
     <section>
         <div class="GameArea">
@@ -33,8 +39,10 @@
             <div id="answer">
                 <!-- <input type="text"> -->
             </div>
-            <button class="btn">馬上開始</button>
-            <button class="btn" id="modalTrigger">先學習單詞</button>
+            <div class="box-container">
+                <button class="btn">馬上開始</button>
+                <button class="btn" id="modalTrigger">先學習單詞</button>
+            </div>
             <h2 class="bestScore"></h2>
         </div>
     </section>
