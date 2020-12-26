@@ -282,7 +282,7 @@ i {
         font-family: Helvetica, sans-serif;
         text-align: center;
         color: white;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         letter-spacing: 0.2rem;
         text-transform: uppercase;
         word-spacing: 0.2rem;
@@ -297,7 +297,7 @@ i {
         color: white;
     }
     .header-link {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     button {
         font-size: 0.8rem;
