@@ -11,6 +11,18 @@ let randomOrder = "";
 let chance = 5;
 let finalScore = "";
 
+// Overlay List
+const overlayList = document.getElementById('myList');
+
+function openList() {
+    overlayList.style.width = "100%";
+}
+
+function closeList() {
+    overlayList.style.width = "0%";
+}
+
+
 // modal variables
 const modal = document.getElementById('modal');
 const modalBtn = document.getElementById('modalTrigger');
@@ -267,37 +279,59 @@ const vocabList = [
         "meaning": "時裝 (n.)"
     }
 ]
-
-console.log(vocabList.length);
-console.log(vocabList[1].word);
 // Function for creating the vocab list
-const createTable = () => {
-    let len = vocabList.length;
-    const list = document.getElementById('wordList')
+// const createTable = () => {
+//     let len = vocabList.length;
+//     const list = document.getElementById('wordList')
 
-    for(let i = 0; i < len; i++) {
-            // create table row
-            const row = document.createElement('tr');
-            for (let j = 0; j < 2; j++) {
-                // create a <td> element and a text node
-                const cell = document.createElement('td');
-                if (j == 0) {
-                    const engText = document.createTextNode(`${vocabList[i].word}`);
-                    cell.appendChild(engText);
-                    row.appendChild(cell);
-                } else {
-                    const chinText = document.createTextNode(`${vocabList[i].meaning}`);
-                    cell.appendChild(chinText);
-                    row.appendChild(cell);
-                }
-            }
-            list.appendChild(row);
-        }
+//     for(let i = 0; i < len; i++) {
+//             // create table row
+//             const row = document.createElement('tr');
+//             for (let j = 0; j < 2; j++) {
+//                 // create a <td> element and a text node
+//                 const cell = document.createElement('td');
+//                 if (j == 0) {
+//                     const engText = document.createTextNode(`${vocabList[i].word}`);
+//                     cell.appendChild(engText);
+//                     row.appendChild(cell);
+//                 } else {
+//                     const chinText = document.createTextNode(`${vocabList[i].meaning}`);
+//                     cell.appendChild(chinText);
+//                     row.appendChild(cell);
+//                 }
+//             }
+//             list.appendChild(row);
+//         }
 
+//     }
+
+// createTable();
+
+// Generate the list
+const createWordList = () => {
+    let len = vocabList.length
+    const myVocab = document.getElementById('myVocab');
+    // loop through the vocab list
+    for (let i = 0; i < len; i++) {
+        const card = document.createElement('a'); // create an a element for each vocab
+        card.classList.add('card');  // add card class to each vocab
+
+        const heading = document.createElement('h4'); // create heading for each word
+        heading.classList.add('list-heading'); // add list-heading class to each word
+        const headingText = document.createTextNode(`${vocabList[i].word}`);  // print out the heading inside the card
+        heading.appendChild(headingText);
+
+        const meaning = document.createElement('p');
+        const meaningText = document.createTextNode(`${vocabList[i].meaning}`);
+        meaning.appendChild(meaningText);
+
+        card.appendChild(heading);
+        card.appendChild(meaning);
+        myVocab.appendChild(card);
     }
+}
 
-createTable();
-
+createWordList();
 // Game life fuction
 const addLife = () => {
     const life = document.querySelector('.life');
@@ -339,7 +373,7 @@ const initialSetUp = () => {
     finalScore = 0;
     score.innerHTML = " ";
     inital.style.color = '#e9ecef';
-    btn.textContent = '提交';
+    btn.textContent = '提交答案～';
     // guess.classList.toggle('hidden');
     newWord = createWords();
     // console.log(newWord[0]);

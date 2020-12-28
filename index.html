@@ -15,18 +15,33 @@
     <link rel="stylesheet" href="style.css">
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/c8caa55141.js" crossorigin="anonymous"></script>
-    <title>DSE Vocab Builder</title>
+    <title>English Vocab Builder</title>
 </head>
 <body>
     <header class="box-container">
-        <div class="container-section">
-                <h1 class="container-item">Vocab Builder</h1>
-        </div>
-        <div class="container-section">
-            <a href="#" class="container-item header-link"><i class="fas fa-list"></i>My List</a>
+        <h1 class="container-item">Vocab Builder</h1>
+        <div>
+            <a href="#" class="container-item header-link" onclick="openList()"><i class="fas fa-list"></i>My List</a>
             <a href="#" class="container-item header-link"><i class="fas fa-plus-circle"></i>Add</a>
         </div>
     </header>
+    <nav id="myList" class="overlay">
+        <div class="box-container">
+            <h3 class="list-heading"></h3>
+            <a href="javascript:void(0)" class="closebtn list-heading" onclick="closeList()">&times;</a>
+        </div>
+        <div class="center-box">
+            <h2 class="list-heading">Your Vocab List</h2>
+        </div>
+        <div id="myVocab" class="list-container list-content">
+            <a href="#" class="card">
+                <h4 class="list-heading">
+                    Card 1
+                </h4>
+                <p>some text</p>
+            </a>
+        </div>
+    </nav>
     <section>
         <div class="GameArea">
             <div class="life"></div>
@@ -40,8 +55,8 @@
                 <!-- <input type="text"> -->
             </div>
             <div class="box-container">
-                <button class="btn">馬上開始</button>
-                <button class="btn" id="modalTrigger">先學習單詞</button>
+                <button class="btn">馬上開始挑戰</button>
+                <button class="btn" onclick="openList()">太難了！先學單詞</button>
             </div>
             <h2 class="bestScore"></h2>
         </div>
@@ -49,22 +64,6 @@
     <!-- The Modal box -->
     <div id="modal">
         <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="model-content">
-                <thead>
-                    <tr>
-                        <th colspan="2">DSE Vocab List</th>
-                    </tr>
-                </thead>
-                <tbody id="wordList">
-                    <!-- <tr>
-                        <td>The table body</td>
-                        <td>with two columns</td>
-                    </tr> -->
-                </tbody>
-            </table>
-        </div>
     </div>
     <script src="app.js"></script>
 </body>

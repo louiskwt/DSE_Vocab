@@ -6,13 +6,13 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: #343a40;
 }
 html,
 body {
     margin: 0;
     height: 100%;
     overflow: hidden;
+    background-color: #343a40;
 }
 
 header {
@@ -42,14 +42,18 @@ h3 {
     color: white;
 }
 
+/* Flexbox style */
+
 .box-container {
     display: flex;
     justify-content: space-between;
     padding: 10px;
 }
 
-.container-section {
+.center-box {
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -61,6 +65,16 @@ h3 {
 .container.item + .container-item {
     margin-left: 2rem;
 }
+
+.list-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Game setting style */
 
 .openingDisplay {
     margin-bottom: 1.2rem; 
@@ -80,6 +94,9 @@ section {
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
+}
+.header-link:hover {
+    font-weight: 600;
 }
 
 
@@ -174,6 +191,7 @@ button.btn:focus {
     letter-spacing: 0.125rem;
     word-spacing: 0.2rem;
 }
+
 .header-btn {
     background: #e9ecef;
     margin: -2rem, 1rem;
@@ -274,6 +292,65 @@ tr {
 /* Heart style */
 i {
     margin-right: 0.3rem;
+}
+
+/* Overlay List */
+
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgba(243, 243, 243, 0.9); /* light grey w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+
+.list-heading {
+      color: black;
+      font-size: 1.5rem;
+  }
+.list-content {
+    color: black;
+}
+
+.overlay a {
+    text-decoration: none;
+    color: #000;
+}
+
+.overlay a:hover {
+    font-weight: 900;
+}
+
+.overlay .closebtn {
+    font-size: 2.5rem;
+}
+
+.card {
+    width: 25%;
+    height: auto;
+    background-color: #f2f8f9;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.card:hover {
+        transition: all 0.2s ease-out;
+        box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+        top: -5px;
+        border: 1px solid #cccccc;
+        /* background-color: white; */
+}
+
+.card p {
+    margin-top: 1.1rem;
 }
 
 /* Media Query */
