@@ -363,7 +363,7 @@ i {
 
 @media screen and (max-width: 600px) {
     .card{
-        width: 50%;
+        width: 30%;
         height: auto;
     }
     .card p{
