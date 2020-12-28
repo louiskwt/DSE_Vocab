@@ -363,15 +363,15 @@ i {
 
 @media screen and (max-width: 600px) {
     .card{
-        width: 30%;
+        width: 50%;
         height: auto;
     }
     .card p{
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     .list-heading {
         color: black;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
