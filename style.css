@@ -74,6 +74,18 @@ h3 {
     justify-content: center;
 }
 
+@media screen and (max-width: 600px) {
+    .container-item {
+        padding: 0.2rem .8rem;
+        font-size: 0.8rem;
+    }
+    
+    .container.item + .container-item {
+        margin-left: 1rem;
+    }
+}
+
+
 /* Game setting style */
 
 .openingDisplay {
@@ -351,11 +363,11 @@ i {
 
 @media screen and (max-width: 600px) {
     .card{
-        width: 30%;
+        width: 50%;
         height: auto;
     }
     .card p{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .list-heading {
         color: black;
@@ -402,8 +414,8 @@ i {
     }
     button.btn {
         font-weight: 600;
-        padding: 1rem 2rem;
-        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.8rem;
         background: #e9ecef;
         text-transform: uppercase;
         transition-property: all;
