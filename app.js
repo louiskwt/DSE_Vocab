@@ -2,6 +2,7 @@
 const inital = document.querySelector('.start');
 const ansInput = document.querySelector('#answer');
 const btn = document.querySelector('.btn');
+const checkBtn = document.querySelector('#checkButton');
 let score = document.querySelector('.score');
 let guess = document.querySelector('input');
 let point = 0;
@@ -278,34 +279,7 @@ const vocabList = [
         "word": "fashion",
         "meaning": "時裝 (n.)"
     }
-]
-// Function for creating the vocab list
-// const createTable = () => {
-//     let len = vocabList.length;
-//     const list = document.getElementById('wordList')
-
-//     for(let i = 0; i < len; i++) {
-//             // create table row
-//             const row = document.createElement('tr');
-//             for (let j = 0; j < 2; j++) {
-//                 // create a <td> element and a text node
-//                 const cell = document.createElement('td');
-//                 if (j == 0) {
-//                     const engText = document.createTextNode(`${vocabList[i].word}`);
-//                     cell.appendChild(engText);
-//                     row.appendChild(cell);
-//                 } else {
-//                     const chinText = document.createTextNode(`${vocabList[i].meaning}`);
-//                     cell.appendChild(chinText);
-//                     row.appendChild(cell);
-//                 }
-//             }
-//             list.appendChild(row);
-//         }
-
-//     }
-
-// createTable();
+];
 
 // Generate the list
 const createWordList = () => {
@@ -313,21 +287,14 @@ const createWordList = () => {
     const myVocab = document.getElementById('myVocab');
     // loop through the vocab list
     for (let i = 0; i < len; i++) {
-        const card = document.createElement('a'); // create an a element for each vocab
-        card.classList.add('card');  // add card class to each vocab
-
-        const heading = document.createElement('h4'); // create heading for each word
-        heading.classList.add('list-heading'); // add list-heading class to each word
-        const headingText = document.createTextNode(`${vocabList[i].word}`);  // print out the heading inside the card
-        heading.appendChild(headingText);
-
-        const meaning = document.createElement('p');
-        const meaningText = document.createTextNode(`${vocabList[i].meaning}`);
-        meaning.appendChild(meaningText);
-
-        card.appendChild(heading);
-        card.appendChild(meaning);
-        myVocab.appendChild(card);
+        // generate the html template for the card
+        const cardHtml = `
+        <a class='card'> 
+            <h4 class='list-heading'>${vocabList[i].word}</h4>
+            <p>${vocabList[i].meaning}</p>
+        </a>
+        `;
+        myVocab.innerHTML += cardHtml;
     }
 }
 
@@ -357,13 +324,13 @@ const createWords = () => {
     return word;
 }
 
+// function for mixing the words
 const jumbleWord = (el) => {
     for (let i = el.length - 1; i >= 0; i--) {
         let temp = el[i];
         let j = Math.floor(Math.random() * (i + 1));
         el[i] = el[j];
         el[j] = temp;
-
     }
     return el.join("");
 }
@@ -433,14 +400,17 @@ function reverseTab(e, original, destination) {
 const creatingInput = () => {
     ansInput.innerHTML = "";
     for (let i = 0; i < newWord[0].length; i++) {
-        console.log(i);
         let ans = document.createElement("INPUT");
         ans.setAttribute("class", 'letter');
         ans.setAttribute("type", "input");
         ans.setAttribute("size", "1");
         ans.setAttribute("maxLength", "1");
         ans.setAttribute("name", `${i}`);
-        ans.setAttribute("onKeyup", `autoTab(this, ansInput.childNodes[${i+1}])`);
+        if(i+1 == newWord[0].length) {
+            ans.setAttribute("onKeyup", `autoTab(this, checkBtn)`);
+        } else {
+            ans.setAttribute("onKeyup", `autoTab(this, ansInput.childNodes[${i+1}])`);
+        }
         if(i > 0) {
             ans.setAttribute("onKeydown", `reverseTab(event, this, ansInput.childNodes[${i-1}])`);
         }
@@ -453,8 +423,6 @@ const chainingValue = () => {
     const answerSection = ansInput.children;
     let addedValue = "";
     for(let i = 0; i < answerSection.length; i++) {
-        console.log(i);
-        console.log(answerSection[i]);
         addedValue += answerSection[i].value;
     }
     return addedValue.toLowerCase();
@@ -490,7 +458,7 @@ const updatingBestScore = () => {
     // check and update the best score
     let bestScoreDisplay = document.querySelector('.bestScore');
     let bestScore = window.localStorage;
-    if (bestScore.getItem('bestScore') == null) {
+    if (bestScore.getItem('bestScore') == null) {  // check if bestscore exists; if not set it to zero
         bestScore.setItem('bestScore', '0');
     }else if (point > bestScore.getItem('bestScore')) {
         // updating the score
@@ -532,24 +500,31 @@ btn.addEventListener('click', () => {
                     }
                 }
         }
-})
+});
+
+// checkBtn.addEventListener('keyup', e => {
+//     e.preventDefault();
+//     if(e.keyCode === 13) {
+//         checkBtn.click();
+//     }
+// });
 
 // Modal event
 
 // When the user click the modal button, open the modal
-modalBtn.onclick = () => {
-    modal.style.display = 'block';
-}
+// modalBtn.onclick = () => {
+//     modal.style.display = 'block';
+// }
 
-// when the user click x, close the modal
-span.onclick = () => {
-    modal.style.display = 'none';
-}
+// // when the user click x, close the modal
+// span.onclick = () => {
+//     modal.style.display = 'none';
+// }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if(event.target == modal){
-        modal.style.display = 'none';
-    }
-}
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if(event.target == modal){
+//         modal.style.display = 'none';
+//     }
+// }
 
