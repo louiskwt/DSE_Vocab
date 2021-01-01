@@ -13,8 +13,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-32x32.png">
     <link rel="manifest" href="/img/site.webmanifest">
     <link rel="stylesheet" href="style.css">
-   <!-- Font Awesome -->
-   <script src="https://kit.fontawesome.com/c8caa55141.js" crossorigin="anonymous"></script>
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c8caa55141.js" crossorigin="anonymous"></script>
     <title>English Vocab Builder</title>
 </head>
 <body>
@@ -22,16 +28,16 @@
         <h1 class="container-item">Vocab Builder</h1>
         <div>
             <a href="#" class="container-item header-link" onclick="openList()"><i class="fas fa-list"></i>My List</a>
-            <a href="#" class="container-item header-link"><i class="fas fa-plus-circle"></i>Add</a>
+            <!-- <a href="#" class="container-item header-link"><i class="fas fa-plus-circle"></i>Add</a> -->
         </div>
     </header>
     <nav id="myList" class="overlay">
         <div class="box-container">
-            <h3 class="list-heading"></h3>
             <a href="javascript:void(0)" class="closebtn list-heading" onclick="closeList()">&times;</a>
         </div>
-        <div class="center-box">
+        <div class="box-container">
             <h2 class="list-heading">Your Vocab List</h2>
+            <div class="list-heading"><a href="#modal-1" rel="modal:open" class="list-iconlink"><i class="fas fa-plus-circle"></i>Add</a> </div>
         </div>
         <div id="myVocab" class="list-container list-content">
         </div>
@@ -56,9 +62,19 @@
         </div>
     </section>
     <!-- The Modal box -->
-    <div id="modal">
-        <!-- Modal content -->
-    </div>
+    <!-- Modal HTML embedded directly into document -->
+<div id="modal-1" class="modal">
+    <h4 class="modal-header">Add Vocab</h4>
+    <form action="" class="addWord" id="add-vocab-form">
+        <label class="modal-label">英文單詞</label>
+        <input class="modalinput word" type="text" name="engWord" id="1" placeholder="Vocabulary"  required>
+        <label class="modal-label">解釋</label>
+        <input class="modalinput meaning" type="text" name="meaning" id="1" placeholder="單詞 (n.)" required>
+    </form>
+    <button type="submit" class="modal-btn" form="add-vocab-form" >ADD</button><button type="" class="modal-btn" id="addField">Add more vocab</button>
+  </div>
     <script src="app.js"></script>
+    <script src="view.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>
