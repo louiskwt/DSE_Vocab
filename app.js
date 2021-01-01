@@ -15,20 +15,6 @@ let finalScore = "";
 // Overlay List
 const overlayList = document.getElementById('myList');
 
-function openList() {
-    overlayList.style.width = "100%";
-}
-
-function closeList() {
-    overlayList.style.width = "0%";
-}
-
-
-// modal variables
-const modal = document.getElementById('modal');
-const modalBtn = document.getElementById('modalTrigger');
-const span = document.querySelector('.close');
-
 // Best Scores variables
 let bestScoreDisplay = document.querySelector('.bestScore');
 let scoreStorage = window.localStorage;
@@ -43,202 +29,6 @@ score.innerHTML = "";
 
 // Static vocab list
 const vocabList = [
-    {
-        "word": "stop",
-        "meaning": "停止 (v.)"
-    },
-    {
-        "word": "doctor",
-        "meaning": "醫生 (n.)"
-    },
-    {
-        "word": "laptop",
-        "meaning": "手提電腦 (n.)"
-    },
-    {
-        "word": "science",
-        "meaning": "科學 (n.)"
-    },
-    {
-        "word": "engineer",
-        "meaning": "工程師 (n.)"
-    },
-    {
-        "word": "wonder",
-        "meaning": "驚訝 (n.)"
-    },
-    {
-        "word": "desire",
-        "meaning": "慾望 (n.)"
-    },
-    {
-        "word": "society",
-        "meaning": "社會 (n.)"
-    },
-    {
-        "word": "wonder",
-        "meaning": "想知道 (v.)"
-    },
-    {
-        "word": "social",
-        "meaning": "社交的 (adj.)"
-    },
-    {
-        "word": "volunteer",
-        "meaning": "義工 (v.)"
-    },
-    {
-        "word": "vet",
-        "meaning": "獸醫 (n.)"
-    },
-    {
-        "word": "desire",
-        "meaning": "慾望 (n.)"
-    },
-    {
-        "word": "wonderful",
-        "meaning": "神奇的 (adj.)"
-    },
-    {
-        "word": "socialise",
-        "meaning": "交際 (v.)"
-    },
-    {
-        "word": "dentist",
-        "meaning": "牙醫 (n.)"
-    },
-    {
-        "word": "mention",
-        "meaning": "提及 (v.)"
-    },
-    {
-        "word": "finding",
-        "meaning": "發現 (n.)"
-    },
-    {
-        "word": "sad",
-        "meaning": "傷心 (adj.)"
-    },
-    {
-        "word": "special",
-        "meaning": "特別的 (adj.)"
-    },
-    {
-        "word": "tired",
-        "meaning": "疲累的 (adj.)"
-    },
-    {
-        "word": "volunteer",
-        "meaning": "做義工 (v.)"
-    },
-    {
-        "word": "pet",
-        "meaning": "寵物 (n.)"
-    },
-    {
-        "word": "crime",
-        "meaning": "罪案 (n.)"
-    },
-    {
-        "word": "fun",
-        "meaning": "歡樂的 (ad.)"
-    },
-    {
-        "word": "sit",
-        "meaning": "坐 (v.)"
-    },
-    {
-        "word": "compete",
-        "meaning": "競爭 (v.)"
-    },
-    {
-        "word": "piano",
-        "meaning": "鋼琴 (n.)"
-    },
-    {
-        "word": "smartphone",
-        "meaning": "智能手機 (n.)"
-    },
-    {
-        "word": "simple",
-        "meaning": "簡單的 （adj.)"
-    },
-    {
-        "word": "trap",
-        "meaning": "陷阱 (n.)"
-    },
-    {
-        "word": "flight",
-        "meaning": "航班 (n.)"
-    },
-    {
-        "word": "hotel",
-        "meaning": "酒店 (n.)"
-    },
-    {
-        "word": "beach",
-        "meaning": "海灘 (n.)"
-    },
-    {
-        "word": "farm",
-        "meaning": "農田(n.)"
-    },
-    {
-        "word": "text",
-        "meaning": "文字 (n.)"
-    },
-    {
-        "word": "slow",
-        "meaning": "緩慢的 (adj.)"
-    },
-    {
-        "word": "oil",
-        "meaning": "油 (n.)"
-    },
-    {
-        "word": "salt",
-        "meaning": "鹽 (n.)"
-    },
-    {
-        "word": "hopeful",
-        "meaning": "有希望的（adj.)"
-    },
-    {
-        "word": "real",
-        "meaning": "真實的 (adj.)"
-    },
-    {
-        "word": "state",
-        "meaning": "指出 (v.)"
-    },
-    {
-        "word": "lead",
-        "meaning": "領導 (v.)"
-    },
-    {
-        "word": "health",
-        "meaning": "健康 (n.)"
-    },
-    {
-        "word": "sell",
-        "meaning": "賣 (v.)"
-    },
-    {
-        "word": "helepful",
-        "meaning": "有幫肋的 (adj.)"
-    },
-    {
-        "word": "wage",
-        "meaning": "工資 (n.)"
-    },
-    {
-        "word": "pay",
-        "meaning": "付款 (n.)"
-    },
-    {
-        "word": "late",
-        "meaning": "遲的 (adj.)"
-    },
     {
         "word": "mask",
         "meaning": "口罩 (n.)"
@@ -281,24 +71,21 @@ const vocabList = [
     }
 ];
 
-// Generate the list
-const createWordList = () => {
-    let len = vocabList.length
-    const myVocab = document.getElementById('myVocab');
-    // loop through the vocab list
-    for (let i = 0; i < len; i++) {
-        // generate the html template for the card
-        const cardHtml = `
-        <a class='card'> 
-            <h4 class='list-heading'>${vocabList[i].word}</h4>
-            <p>${vocabList[i].meaning}</p>
-        </a>
-        `;
-        myVocab.innerHTML += cardHtml;
+let vocabList_serialised = JSON.stringify(vocabList);
+let userList;
+function storeingData() {
+    if (window.localStorage.getItem('userVocab') == null || window.localStorage.getItem('userVocab') == "" ) {
+        window.localStorage.setItem('userVocab', vocabList_serialised);
     }
+    userList = JSON.parse(window.localStorage.getItem('userVocab'));
 }
 
-createWordList();
+storeingData();
+
+// localStorage.setItem
+
+
+
 // Game life fuction
 const addLife = () => {
     const life = document.querySelector('.life');
@@ -318,8 +105,8 @@ const reduceLife = () => {
 
 // Game Set up (creating and scrambling words)
 const createWords = () => {
-    let number = Math.floor(Math.random() * vocabList.length);
-    let word = [vocabList[number].word, vocabList[number].meaning];
+    let number = Math.floor(Math.random() * userList.length);
+    let word = [userList[number].word, userList[number].meaning];
     // console.log(random.split(""));
     return word;
 }
@@ -501,30 +288,3 @@ btn.addEventListener('click', () => {
                 }
         }
 });
-
-// checkBtn.addEventListener('keyup', e => {
-//     e.preventDefault();
-//     if(e.keyCode === 13) {
-//         checkBtn.click();
-//     }
-// });
-
-// Modal event
-
-// When the user click the modal button, open the modal
-// modalBtn.onclick = () => {
-//     modal.style.display = 'block';
-// }
-
-// // when the user click x, close the modal
-// span.onclick = () => {
-//     modal.style.display = 'none';
-// }
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if(event.target == modal){
-//         modal.style.display = 'none';
-//     }
-// }
-
