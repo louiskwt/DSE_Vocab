@@ -306,6 +306,32 @@ button.btn:focus {
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0.65, -0.25, 0.25, 1.95);
   }
+
+
+  @media screen and (max-width: 400px) {
+    .modal button {
+        font-size: 0.6rem;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #e9ecef;
+        text-decoration: none;
+        color: #000;
+        border-radius: 200px;
+        text-decoration: none;
+        margin-top: 1.3rem;
+      }
+      .modal-btn {
+        font-weight: 400;
+        padding: 0.6rem 1.3rem;
+        font-size: 0.6rem;
+        background: #e9ecef;
+        text-transform: uppercase;
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: cubic-bezier(0.65, -0.25, 0.25, 1.95);
+      }
+  }
+
   .modal-label {
       /* if label is displaying as an inline element, the top margin won't have any effect. */
     display:inline-block; 
