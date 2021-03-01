@@ -30,44 +30,44 @@ score.innerHTML = "";
 // Static vocab list
 const vocabList = [
     {
-        "word": "mask",
-        "meaning": "口罩 (n.)"
+        "word": "impressive",
+        "meaning": "印象深刻 (adj.)"
     },
     {
-        "word": "symbol",
-        "meaning": "標誌 (n.)"
+        "word": "invest",
+        "meaning": "投資/投入 (v.)"
     },
     {
-        "word": "boar",
-        "meaning": "野豬 (n.)"
+        "word": "monitor",
+        "meaning": "監控 (v.)"
     },
     {
-        "word": "truck",
-        "meaning": "貨車 (n.)"
+        "word": "machine",
+        "meaning": "機器 (n.)"
+    },
+    {
+        "word": "industrial",
+        "meaning": "工業的 (adj.)"
     },
     {
         "word": "virtual",
-        "meaning": "虛疑的 (adj.)"
+        "meaning": "虛擬的 (adj.)"
     },
     {
-        "word": "novel",
-        "meaning": "小說 (n.)"
-    },
-    {
-        "word": "steam",
-        "meaning": "蒸 (v.)"
+        "word": "vacuum",
+        "meaning": "吸塵器 (n.)"
     },
     {
         "word": "handle",
         "meaning": "處理 (v.)"
     },
     {
-        "word": "trust",
-        "meaning": "相信 (v.)"
+        "word": "interactive",
+        "meaning": "互動的 (adj.)"
     },
     {
-        "word": "fashion",
-        "meaning": "時裝 (n.)"
+        "word": "tiresome",
+        "meaning": "令人厭倦 (adj.)"
     }
 ];
 
